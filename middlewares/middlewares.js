@@ -11,4 +11,4 @@ const validateFunc = (schema) => {
   return func;
 };
 
-module.exports = { validateFunc };
+module.exports = validateFunc;
