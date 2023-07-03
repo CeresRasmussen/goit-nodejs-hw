@@ -9,4 +9,4 @@ const controllerWrapper = (ctlr) => {
   return wrapper;
 };
 
-module.exports = { controllerWrapper };
+module.exports = controllerWrapper;

@@ -10,8 +10,8 @@ const {
   updateStatusContact,
 } = require("../../controllers/contacts");
 
-const validateFunc = require("../../middlewares/middlewares");
-const isValidId = require("../../middlewares/isValidId");
+const { validateFunc, isValidId } = require("../../middlewares");
+
 const { schema, updateFavoriteSchema } = require("../../models/contact");
 
 router.get("/", getAll);

@@ -1,7 +1,6 @@
 const { Contact } = require("../models/contact");
 
-const HttpError = require("../helpers/HttpError");
-const { controllerWrapper } = require("../helpers/controllerWrapper");
+const { controllerWrapper, HttpError } = require("../helpers");
 
 const getAll = async (req, res, next) => {
   const result = await Contact.find();
@@ -18,7 +17,6 @@ const getContactById = async (req, res, next) => {
 };
 
 const addContact = async (req, res, next) => {
-  console.log("req.body:", req.body);
   const result = await Contact.create(req.body);
   res.status(201).json(result);
 };
