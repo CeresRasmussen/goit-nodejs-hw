@@ -8,7 +8,7 @@ const {
   removeContact,
   updateContact,
   updateStatusContact,
-} = require("../../controllers");
+} = require("../../controllers/contact");
 
 const { validateFunc, isValidId } = require("../../middlewares");
 
