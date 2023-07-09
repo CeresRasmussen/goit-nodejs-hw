@@ -10,22 +10,23 @@ const {
   updateStatusContact,
 } = require("../../controllers/contact");
 
-const { validateFunc, isValidId } = require("../../middlewares");
+const { validateFunc, isValidId, authenticate } = require("../../middlewares");
 
 const { schema, updateFavoriteSchema } = require("../../models/contact");
 
-router.get("/", getAll);
+router.get("/", authenticate, getAll);
 
-router.get("/:contactId", isValidId, getContactById);
+router.get("/:contactId", authenticate, isValidId, getContactById);
 
-router.post("/", validateFunc(schema), addContact);
+router.post("/", authenticate, validateFunc(schema), addContact);
 
-router.delete("/:contactId", isValidId, removeContact);
+router.delete("/:contactId", authenticate, isValidId, removeContact);
 
-router.put("/:contactId", isValidId, updateContact);
+router.put("/:contactId", authenticate, isValidId, updateContact);
 
 router.patch(
   "/:contactId/favorite",
+  authenticate,
   isValidId,
   validateFunc(updateFavoriteSchema),
   updateStatusContact
